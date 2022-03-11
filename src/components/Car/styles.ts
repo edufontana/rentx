@@ -28,7 +28,7 @@ export const About = styled.View`
   flex-direction: row;
   align-items: center;
 
-  margin-top: 16px;
+  margin-top: ${RFValue(16)}px;
 `;
 export const Rent = styled.View`
   margin-right: 24px;
@@ -44,4 +44,7 @@ export const Price = styled.Text`
   text-transform: uppercase;
 `;
 export const Type = styled.View``;
-export const CarImage = styled.Image``;
+export const CarImage = styled.Image`
+  width: ${RFValue(167)}px;
+  height: ${RFValue(85)}px;
+`;

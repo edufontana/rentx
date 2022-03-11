@@ -13,9 +13,24 @@ import {
   Period,
   Price,
   Type,
+  CarImage,
 } from './styles';
 
-export function Car() {
+interface CarData {
+  brand: string;
+  name: string;
+  rent: {
+    period: string;
+    price: number;
+  };
+  thumbnail: string;
+}
+
+interface Props {
+  data: CarData;
+}
+
+export function Car({data}: Props) {
   return (
     <Container>
       <StatusBar
@@ -25,13 +40,13 @@ export function Car() {
       />
 
       <Details>
-        <Brand>Audi</Brand>
-        <Name>RS 5 Coupe</Name>
+        <Brand>{data.brand}</Brand>
+        <Name>{data.name}</Name>
 
         <About>
           <Rent>
-            <Period>Ao Dia</Period>
-            <Price>R$ 120</Price>
+            <Period>{data.rent.period}</Period>
+            <Price>{`R$ ${data.rent.price}`}</Price>
           </Rent>
 
           <Type>
@@ -39,6 +54,12 @@ export function Car() {
           </Type>
         </About>
       </Details>
+      <CarImage
+        resizeMode="contain"
+        source={{
+          uri: data.thumbnail,
+        }}
+      />
     </Container>
   );
 }

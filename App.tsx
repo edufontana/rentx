@@ -1,5 +1,5 @@
 import React from 'react';
-import {Home} from './src/screens/Home/Index';
+import {CarDetails} from './src/screens/CarDetails';
 import {
   useFonts,
   Inter_400Regular,
@@ -26,7 +26,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Home />
+      <CarDetails />
     </ThemeProvider>
   );
 }
