@@ -3,6 +3,14 @@ import {StatusBar} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {BackButton} from '../../components/BackButton';
 import {ImageSlider} from '../../components/ImageSlider';
+import {Accessory} from '../../components/Accessory';
+
+import speedSvg from '../../assets/speed.svg';
+import accelerationSvg from '../../assets/acceleration.svg';
+import forceSvg from '../../assets/force.svg';
+import gasolineSvg from '../../assets/gasoline.svg';
+import exchangeSvg from '../../assets/exchange.svg';
+import peoplevg from '../../assets/people.svg';
 
 import {
   Container,
@@ -17,6 +25,7 @@ import {
   Period,
   Price,
   About,
+  Accessories,
 } from './styles';
 
 export function CarDetails() {
@@ -51,6 +60,15 @@ export function CarDetails() {
             <Price>R$ 580</Price>
           </Rent>
         </Details>
+
+        <Accessories>
+          <Accessory icon={speedSvg} name="390Km/h" />
+          <Accessory icon={accelerationSvg} name="3.2s" />
+          <Accessory icon={forceSvg} name="800 HP" />
+          <Accessory icon={gasolineSvg} name="Gasoline" />
+          <Accessory icon={exchangeSvg} name="Auto" />
+          <Accessory icon={peoplevg} name="2 pessoas" />
+        </Accessories>
 
         <About>
           Este é um automóvel desportivo. Surgiu do lendário touro de lide
