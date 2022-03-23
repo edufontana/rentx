@@ -1,5 +1,5 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {CarDetails} from './src/screens/CarDetails';
 import {
   useFonts,
   Inter_400Regular,
@@ -13,9 +13,7 @@ import {
 
 import {ThemeProvider} from 'styled-components';
 import theme from './src/styles/theme';
-import {Scheduling} from './src/screens/Scheduling';
-import {SchedulingDetails} from './src/screens/SchedulingDetails';
-import {SchedulingComplete} from './src/screens/SchedulingComplete';
+import {Routes} from './src/routes';
 
 export default function App() {
   const [fontsLoadead] = useFonts({
@@ -29,7 +27,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <SchedulingComplete />
+      <Routes />
     </ThemeProvider>
   );
 }

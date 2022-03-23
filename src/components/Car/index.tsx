@@ -1,5 +1,6 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
+import {RectButtonProps} from 'react-native-gesture-handler';
 import {RFValue} from 'react-native-responsive-fontsize';
 import GasolineSvg from '../../assets/gasoline.svg';
 
@@ -26,13 +27,13 @@ interface CarData {
   thumbnail: string;
 }
 
-interface Props {
+interface Props extends RectButtonProps {
   data: CarData;
 }
 
-export function Car({data}: Props) {
+export function Car({data, ...rest}: Props) {
   return (
-    <Container>
+    <Container {...rest}>
       <StatusBar
         barStyle="light-content"
         backgroundColor="transparent"

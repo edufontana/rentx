@@ -1,4 +1,5 @@
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {StatusBar} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {BackButton} from '../../components/BackButton';
@@ -31,6 +32,12 @@ import {
 } from './styles';
 
 export function CarDetails() {
+  const navigation = useNavigation();
+
+  function handleConfirmRental() {
+    navigation.navigate('Scheduling');
+  }
+
   const data = {
     color: 'black',
   };
@@ -80,7 +87,10 @@ export function CarDetails() {
       </Content>
 
       <Footer>
-        <Button title={'Confirmar'} />
+        <Button
+          title={'Escolher período do aluguel'}
+          onPress={handleConfirmRental}
+        />
       </Footer>
     </Container>
   );

@@ -1,4 +1,6 @@
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
+
 import {StatusBar} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {BackButton} from '../../components/BackButton';
@@ -43,6 +45,13 @@ import {
 
 export function SchedulingDetails() {
   const theme = useTheme();
+
+  const navigation = useNavigation();
+
+  function handleConfirmRental() {
+    navigation.navigate('SchedulingComplete');
+  }
+
   return (
     <Container>
       <StatusBar barStyle="light-content" backgroundColor="transparent" />
@@ -116,7 +125,11 @@ export function SchedulingDetails() {
       </Content>
 
       <Footer>
-        <Button title={'Confirmar'} />
+        <Button
+          title={'Alugar agora'}
+          color={theme.colors.success}
+          onPress={handleConfirmRental}
+        />
       </Footer>
     </Container>
   );
