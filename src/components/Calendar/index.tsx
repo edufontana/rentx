@@ -1,10 +1,35 @@
 import React from 'react';
 import {Feather} from '@expo/vector-icons';
 
-import {Calendar as CustomCalendar} from 'react-native-calendars';
+import {
+  Calendar as CustomCalendar,
+  DateCallbackHandler,
+} from 'react-native-calendars';
 import {useTheme} from 'styled-components';
 
-export function Calendar() {
+interface MarkedDatesProps {
+  [date: string]: {
+    color: string;
+    textColor: string;
+    disabled?: boolean;
+    disableTouchEvent?: boolean;
+  };
+}
+
+interface DayProps {
+  dateString: string;
+  day: number;
+  month: number;
+  timestamp: number;
+  year: number;
+}
+
+interface CalendarProps {
+  markedDates: MarkedDatesProps;
+  onDayPress: DateCallbackHandler;
+}
+
+function Calendar({markedDates, onDayPress}: CalendarProps) {
   const theme = useTheme();
 
   return (
@@ -32,6 +57,12 @@ export function Calendar() {
         },
       }}
       firstDay={1}
+      markingType="period"
+      minDate={new Date()}
+      markedDates={markedDates}
+      onDayPress={onDayPress}
     />
   );
 }
+
+export {Calendar, MarkedDatesProps, DayProps};
