@@ -32,6 +32,14 @@ export function Scheduling() {
 
   function handleChangeDate(date: DayProps) {
     let start = !lastSelectedDate.timestamp ? date : lastSelectedDate.timestamp;
+    let end = date;
+
+    if (start.timestamp > end.timestamp) {
+      start = end;
+      end = start;
+    }
+
+    setLastSelectedDate(end);
   }
 
   const navigation = useNavigation();
